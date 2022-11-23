@@ -41,7 +41,7 @@ BASE_APPS = [
 ]
 
 PROJECT_APPS = [
-
+    'apps.tasks'
 ]
 
 THIRD_APPS = [
