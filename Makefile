@@ -1,9 +1,3 @@
-# Subir cambios cuidando que primero vayan los tests
-# test para users
-# readme con doc para correr
-# diagrama de modelo
-# swagger
-# postman con coleccion
 makemigrations:
 	python manage.py makemigrations
 
