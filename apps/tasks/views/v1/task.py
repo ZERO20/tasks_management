@@ -1,3 +1,4 @@
+from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiParameter
 from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -23,6 +24,27 @@ class TaskViewSet(ModelViewSet):
         if description:
             queryset = queryset.filter(description__icontains=description)
         return queryset
+
+    @extend_schema(
+        parameters=[OpenApiParameter(
+            name='name',
+            type={'type': 'string'},
+            location=OpenApiParameter.QUERY,
+            required=False,
+            style='form',
+            explode=False,
+        ),
+        OpenApiParameter(
+            name='description',
+            type={'type': 'string'},
+            location=OpenApiParameter.QUERY,
+            required=False,
+            style='form',
+            explode=False,
+        )],
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
     @action(detail=True, methods=['put'], url_path='update/status', url_name='update-status')
     def update_status(self, request, pk=None):

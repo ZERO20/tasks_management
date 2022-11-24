@@ -48,6 +48,7 @@ PROJECT_APPS = [
 THIRD_APPS = [
     'django_extensions',
     'rest_framework',
+    'drf_spectacular',
 ]
 
 INSTALLED_APPS = BASE_APPS + PROJECT_APPS + THIRD_APPS
@@ -150,7 +151,8 @@ REST_FRAMEWORK = {
 
     'DEFAULT_PERMISSIONS_CLASSES':(
         'rest_framework.permissions.IsAuthenticated'
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 
