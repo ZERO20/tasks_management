@@ -20,6 +20,7 @@ class Task(models.Model):
     class Meta:
         verbose_name = 'Task'
         verbose_name_plural = 'Tasks'
+        ordering = ['-created_at',]
 
     def __str__(self):
         return self.name
