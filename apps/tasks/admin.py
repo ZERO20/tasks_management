@@ -9,5 +9,5 @@ class TaskAdmin(admin.ModelAdmin):
     list_filter = ('created_at',)
     readonly_fields = ('created_at', 'updated_at',)
     search_fields = ('name', 'description', 'user__username', 'user__email',)
-    fields = ('name', 'description', 'user', 'created_at', 'updated_at',)
+    fields = ('name', 'description', 'status', 'user', 'created_at', 'updated_at',)
     ordering = ('-created_at',)
