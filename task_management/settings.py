@@ -41,7 +41,8 @@ BASE_APPS = [
 ]
 
 PROJECT_APPS = [
-    'apps.tasks'
+    'apps.tasks',
+    'apps.users',
 ]
 
 THIRD_APPS = [
@@ -151,3 +152,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     )
 }
+
+
+SHELL_PLUS_IMPORTS = [
+    'from apps.tasks.test.factories.task import TaskFactory',
+    'from apps.users.test.factories.user import UserFactory',
+]
