@@ -54,4 +54,4 @@ class TaskViewSet(ModelViewSet):
         serializer.is_valid(raise_exception=True)
         task.status = serializer.validated_data.get('status')
         task.save()
-        return Response(serializer.data)
+        return Response(TaskSerializer(instance=task).data)
